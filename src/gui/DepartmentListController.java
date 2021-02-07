@@ -7,7 +7,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 import application.Main;
-import db.DbIntegrityException;
+import db.DbException;
 import gui.listeners.DataChangeListener;
 import gui.util.Alerts;
 import gui.util.Utils;
@@ -168,7 +168,7 @@ public class DepartmentListController implements Initializable, DataChangeListen
 				service.remove(obj);
 				updateTableView();
 			}
-			catch (DbIntegrityException e) {
+			catch (DbException e) {
 				Alerts.showAlert("Error removing object", null, e.getMessage(), AlertType.ERROR);
 			}
 		}
